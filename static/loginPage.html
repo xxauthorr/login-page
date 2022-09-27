@@ -1,0 +1,55 @@
+{{ template "header_sec.html"}}
+
+<section class="background-radial-gradient overflow-hidden">
+    <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+        <div class="row gx-lg-5 align-items-center mb-5">
+            <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
+                <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
+                    Learn to code <br />
+                    <span style="color: hsl(218, 81%, 75%)">for the Gophers.</span>
+                </h1>
+                <p class="mb-4 opacity-70" style="color: hsl(218, 81%, 85%)">
+                    This is a sample login app with session activated. Done using the popular gorilla-mux framework in GoLang.<br>
+                    Check my Github for the source code: <a href="https://github.com/xxauthorr" style="text-decoration:none">GitHub</a> <br>
+                    Login id : test@gmail.com <br>Password: 12345 
+                </p>
+            </div>
+
+            <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+                <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
+                <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
+
+                <div class="card bg-glass">
+                    <div class="card-body px-4 py-5 px-md-5">
+                        <form action="/loginCheck" method="post">
+                            <!-- Email input -->
+                            <div class="form-outline mb-4">
+                                <!-- if (ErrMsg != "")  *ne = not equal* -->
+                                {{ if ne .ErrMsg "" }}
+                                <p class="errMsg">{{.ErrMsg}}</p>
+                                {{end}}
+                                <!-- <p>{{.}}</p> -->
+                                <input type="email" name="email" id="form3Example3" class="form-control" required/>
+                                <label class="form-label" for="form3Example3">Email address</label>
+                            </div>
+
+                            <!-- Password input -->
+                            <div class="form-outline mb-4">
+                                <input type="password" name="password" id="form3Example4" class="form-control" required/>
+                                <label class="form-label" for="form3Example4">Password</label>
+                            </div>
+
+                            <!-- Submit button -->
+
+                            <button type="submit" class="btn btn-primary btn-block mb-4">
+                                Log In
+                            </button>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{{ template "footer_sec.html"}}

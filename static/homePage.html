@@ -1,0 +1,22 @@
+{{ template "header_sec.html"}}
+<section class="ackground-radial-gradient overflow-hidden">
+    <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+        <div class="row gx-lg-5 align-items-center mb-5">
+            <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+                <div id="adius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
+                <div id="adius-shape-2" class="position-absolute shadow-5-strong"></div>
+                <div class="g-glass">
+                    <h1 class="homeTitle">Welcome {{.Email}}.</h1>
+                    <div class="card-body px-3 py-2 px-md-5">
+                        <p class="mb-4 opacity-70" style="color: hsl(218, 81%, 85%);">
+                            This is a sample login app with session activated. Done using the popular gorilla-mux framework in GoLang.<br><br>
+                            Click the link for source code: <a href="https://github.com/xxauthorr" style="text-decoration:none">GitHub</a> <br>
+                        </p>
+                    </div>
+                    <a class=" logout px-3" href="/logOut">Logout</a>
+                </div>
+            </div>
+        </div>
+</section>
+
+{{ template "footer_sec.html"}}
