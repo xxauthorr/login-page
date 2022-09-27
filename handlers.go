@@ -69,6 +69,25 @@ func LoginCheckHandler(w http.ResponseWriter, r *http.Request) {
 		tpl.ExecuteTemplate(w, "loginPage.html", val)
 	}
 }
+func HomeHandler(w http.ResponseWriter, r *http.Request) {
+	session, _ := store.Get(r, "session")
+	if session.Values["authenticated"] == true {
+		fmt.Println("LoggedIn")
+		email := session.Values["emailId"].(string)
+
+		val := Credentials{Heading: "Home Page", Email: email}
+		// Clear the cache
+		w.Header().Set("Cache-Control", "no-store")
+
+		tpl.ExecuteTemplate(w, "homePage.html", val)
+	} else {
+		// Clear the cache
+		w.Header().Set("Cache-Control", "no-store")
+
+		//redirect to login page
+		http.Redirect(w, r, "/", http.StatusSeeOther)
+	}
+}
 
 func LogOutHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("Log Out")
@@ -88,24 +107,4 @@ func LogOutHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Redirect to the login page
 	http.Redirect(w, r, "/", http.StatusPermanentRedirect)
-}
-
-func HomeHandler(w http.ResponseWriter, r *http.Request) {
-	session, _ := store.Get(r, "session")
-	if session.Values["authenticated"] == true {
-		fmt.Println("LoggedIn")
-		email := session.Values["emailId"].(string)
-
-		val := Credentials{Heading: "Home Page", Email: email}
-		// Clear the cache
-		w.Header().Set("Cache-Control", "no-store")
-
-		tpl.ExecuteTemplate(w, "homePage.html", val)
-	} else {
-		// Clear the cache
-		w.Header().Set("Cache-Control", "no-store")
-
-		//redirect to login page
-		http.Redirect(w, r, "/", http.StatusSeeOther)
-	}
 }
