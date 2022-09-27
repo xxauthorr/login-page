@@ -3,17 +3,17 @@
     height: 749px;
     background-color: hsl(218, 41%, 15%);
     background-image: radial-gradient(650px circle at 0% 0%,
-        hsl(218, 41%, 35%) 15%,
-        hsl(218, 41%, 30%) 35%,
-        hsl(218, 41%, 20%) 75%,
-        hsl(218, 41%, 19%) 80%,
-        transparent 100%),
-      radial-gradient(1250px circle at 100% 100%,
-        hsl(218, 41%, 45%) 15%,
-        hsl(218, 41%, 30%) 35%,
-        hsl(218, 41%, 20%) 75%,
-        hsl(218, 41%, 19%) 80%,
-        transparent 100%);
+            hsl(218, 41%, 35%) 15%,
+            hsl(218, 41%, 30%) 35%,
+            hsl(218, 41%, 20%) 75%,
+            hsl(218, 41%, 19%) 80%,
+            transparent 100%),
+        radial-gradient(1250px circle at 100% 100%,
+            hsl(218, 41%, 45%) 15%,
+            hsl(218, 41%, 30%) 35%,
+            hsl(218, 41%, 20%) 75%,
+            hsl(218, 41%, 19%) 80%,
+            transparent 100%);
 }
 
 #radius-shape-1 {
@@ -41,7 +41,7 @@
     height: 1400px;
 }
 
-.errMsg{
+.errMsg {
     color: red;
     text-align: center;
 }
@@ -55,17 +55,17 @@
     height: 749px;
     background-color: hsl(218, 41%, 15%);
     background-image: radial-gradient(650px circle at 0% 0%,
-        hsl(218, 41%, 35%) 20%,
-        hsl(218, 41%, 30%) 35%,
-        hsl(218, 41%, 20%) 75%,
-        hsl(218, 41%, 19%) 80%,
-        transparent 100%),
-      radial-gradient(1250px circle at 100% 100%,
-        hsl(218, 41%, 45%) 15%,
-        hsl(218, 41%, 30%) 40%,
-        hsl(218, 41%, 20%) 67%,
-        hsl(218, 41%, 19%) 80%,
-        transparent 100%);
+            hsl(218, 41%, 35%) 20%,
+            hsl(218, 41%, 30%) 35%,
+            hsl(218, 41%, 20%) 75%,
+            hsl(218, 41%, 19%) 80%,
+            transparent 100%),
+        radial-gradient(1250px circle at 100% 100%,
+            hsl(218, 41%, 45%) 15%,
+            hsl(218, 41%, 30%) 40%,
+            hsl(218, 41%, 20%) 67%,
+            hsl(218, 41%, 19%) 80%,
+            transparent 100%);
 }
 
 #adius-shape-1 {
@@ -92,23 +92,27 @@
     backdrop-filter: saturate(80%) blur(15px);
     height: 350px;
 }
-.homeTitle{
+
+.homeTitle {
     padding: 30px;
     font-family: 'Abyssinica SIL', serif !important;
     color: #B1B2FF;
     font-size: 250%;
     font-weight: bold;
 }
-.logout{
+
+.logout {
     color: rgb(239, 108, 108);
     font-size: small;
     margin-left: 230px;
     text-decoration: none;
     border-radius: 7px;
-    padding:5px ;
+    padding: 5px;
     background-color: #252762;
 }
-.logout:hover{
+
+.logout:hover {
     color: rgb(239, 41, 41);
 }
 
+/* ERROR PAGE */

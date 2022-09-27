@@ -38,6 +38,7 @@ func main() {
 	router.HandleFunc("/loginCheck", LoginCheckHandler)
 	router.HandleFunc("/logOut", LogOutHandler)
 	router.HandleFunc("/home", HomeHandler)
+	router.NotFoundHandler = http.HandlerFunc(NoPage)
 
 	fmt.Println("Server running succesfully ")
 	//server created at the port 3000

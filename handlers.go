@@ -31,7 +31,7 @@ func LoginHandler(w http.ResponseWriter, r *http.Request) {
 
 func LoginCheckHandler(w http.ResponseWriter, r *http.Request) {
 	if err := r.ParseForm(); err != nil {
-		fmt.Println("Parse error! (Loginc checker)")
+		fmt.Println("Parse error! (Login checker)")
 		fmt.Fprintln(w, "Parse error :", err)
 		return
 	}
@@ -107,4 +107,8 @@ func LogOutHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Redirect to the login page
 	http.Redirect(w, r, "/", http.StatusPermanentRedirect)
+}
+
+func NoPage(w http.ResponseWriter, r *http.Request) {
+	tpl.ExecuteTemplate(w, "errorPage.html", nil)
 }
