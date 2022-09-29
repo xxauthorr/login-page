@@ -37,7 +37,7 @@ func main() {
 	router.HandleFunc("/", LoginHandler)
 	router.HandleFunc("/loginCheck", LoginCheckHandler)
 	router.HandleFunc("/logOut", LogOutHandler)
-	router.HandleFunc("/home", HomeHandler)
+	router.HandleFunc("/home", auth(HomeHandler))
 	router.NotFoundHandler = http.HandlerFunc(NoPage)
 
 	fmt.Println("Server running succesfully ")
