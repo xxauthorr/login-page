@@ -13,10 +13,8 @@ func auth(HandlerFunc http.HandlerFunc) http.HandlerFunc {
 			val := Credentials{ErrMsg: "You Must Login !"}
 			tpl.ExecuteTemplate(w, "loginPage.html", val)
 			return
-		} else {
-
-			HandlerFunc.ServeHTTP(w, r)
 		}
+		HandlerFunc.ServeHTTP(w, r)
 	}
 }
 
@@ -124,6 +122,6 @@ func LogOutHandler(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/", http.StatusPermanentRedirect)
 }
 
-func NoPage(w http.ResponseWriter, r *http.Request) {
+func NoPageHandler(w http.ResponseWriter, r *http.Request) {
 	tpl.ExecuteTemplate(w, "errorPage.html", nil)
 }

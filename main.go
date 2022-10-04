@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"html/template"
 	"log"
@@ -26,19 +27,32 @@ func init() {
 		panic(err)
 	}
 }
+func ArticleHandler(w http.ResponseWriter, r *http.Request) {
+	session, _ := store.Get(r, "session")
+	id := session.Values["emailId"].(string)
+	article := Articles{
+		Article{
+			Email:   id,
+			Name:    "Hari",
+			Details: "onullka"},
+	}
+	json.NewEncoder(w).Encode(article)
+}
 
 func main() {
-	router := mux.NewRouter()
+	router := mux.NewRouter().StrictSlash(true)
 
 	FileServer := http.FileServer(http.Dir("./static/assets/"))
 	router.PathPrefix("/assets/").Handler(http.StripPrefix("/assets/", FileServer))
 
 	//Route Handle functions for each routes
 	router.HandleFunc("/", LoginHandler)
+
 	router.HandleFunc("/loginCheck", LoginCheckHandler)
+	router.HandleFunc("/home", auth(HomeHandler)).Methods("GET")
+	router.HandleFunc("/home", ArticleHandler).Methods("POST")
 	router.HandleFunc("/logOut", LogOutHandler)
-	router.HandleFunc("/home", auth(HomeHandler))
-	router.NotFoundHandler = http.HandlerFunc(NoPage)
+	router.NotFoundHandler = http.HandlerFunc(NoPageHandler)
 
 	fmt.Println("Server running succesfully ")
 	//server created at the port 3000
